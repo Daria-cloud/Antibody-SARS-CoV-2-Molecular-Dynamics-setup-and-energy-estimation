@@ -12,7 +12,7 @@
 structure          solvated_ions.psf
 coordinates        solvated_ions.pdb
 
-set temperature    310
+set temperature    0
 set outputname     min/Antibody_min1
 
 
