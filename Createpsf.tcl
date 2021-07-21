@@ -59,12 +59,12 @@ resetpsf
 }
 }
 }
-segment U {pdb Complex-0.pdb} 	 
-coordpdb Complex-0.pdb U 
-segment U1 {pdb Complex-1.pdb} 	 
-coordpdb Complex-1.pdb U1 
-segment U2 {pdb Complex-2.pdb} 	 
-coordpdb Complex-2.pdb U2  
+segment CP1 {pdb Complex-0.pdb} 	 
+coordpdb Complex-0.pdb CP1 
+segment HP1 {pdb Complex-1.pdb} 	 
+coordpdb Complex-1.pdb HP1 
+segment BP1 {pdb Complex-2.pdb} 	 
+coordpdb Complex-2.pdb BP1  
 #
 guesscoord 
 writepsf Complex_autopsf.psf
