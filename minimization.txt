@@ -12,7 +12,7 @@
 structure          Complex_autopsf.psf
 coordinates        Complex_autopsf.pdb
 
-set temperature    310
+set temperature    0
 set outputname     Antibody_min
 
 
