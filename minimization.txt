@@ -1,0 +1,49 @@
+#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+# Minimization of original structure
+
+
+#############################################################
+## ADJUSTABLE PARAMETERS                                   ##
+#############################################################
+
+structure          Complex_autopsf.psf
+coordinates        Complex_autopsf.pdb
+
+set temperature    310
+set outputname     Antibody_min
+
+
+#############################################################
+## SIMULATION PARAMETERS                                   ##
+#############################################################
+
+# Input
+paraTypeCharmm	    on
+parameters          ../../toppar/par_all36_prot.prm 
+parameters          ../../toppar/par_all36_na.prm  
+temperature         $temperature
+
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.0
+switching           on
+switchdist          10.0
+pairlistdist        13.5
+
+outputname         $outputname
+
+#############################################################
+## EXECUTION SCRIPT                                        ##
+#############################################################
+
+# Minimization
+minimize            5000
+reinitvels          $temperature
+
+
+

@@ -1,0 +1,62 @@
+#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+# Minimization of original structure
+
+
+#############################################################
+## ADJUSTABLE PARAMETERS                                   ##
+#############################################################
+
+structure          solvated_ions.psf
+coordinates        solvated_ions.pdb
+
+set temperature    310
+set outputname     min/Antibody_min1
+
+
+#############################################################
+## SIMULATION PARAMETERS                                   ##
+#############################################################
+
+# Input
+paraTypeCharmm	    on
+parameters          ../../../../toppar/par_all36_prot.prm 
+parameters          ../../../../toppar/par_all36_na.prm 
+parameters          ../../../../toppar/par_all36_carb.prm
+parameters          ../../../../toppar/par_all36_cgenff.prm
+parameters          ../../../../toppar/par_all36_lipid.prm
+parameters          ../../../../toppar/param19.inp
+parameters          ../../../../toppar/par_hbond.inp
+parameters          ../../../../toppar/par_all36m_prot.prm
+parameters          ../../../../toppar/toppar_water_ions_namd.str 
+ 
+temperature         $temperature
+
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.0
+switching           on
+switchdist          10.0
+pairlistdist        13.5
+
+# Periodic Boundary Conditions
+cellBasisVector1    107.0  0.0    0.0
+cellBasisVector2    0.0   107.0   0.0
+cellBasisVector3    0.0    0.0    95.0
+
+PME                 on
+PMEGridSpacing      1.0
+
+outputname         $outputname
+
+#############################################################
+## EXECUTION SCRIPT                                        ##
+#############################################################
+
+# Minimization
+minimize            200
+
